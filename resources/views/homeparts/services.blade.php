@@ -1,4 +1,4 @@
-<div id="services" class="container-fluid text-center">
+<div id="services" class="container-fluid text-center ">
   <h2>SERVICES</h2>
   <h4>What we offer</h4>
   <br>

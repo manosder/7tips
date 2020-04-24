@@ -3,40 +3,16 @@ particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enabl
 //***********************************particlesJS*******************************************
 
 //********************************animation fade in****************************************
-$(document).ready(function(){
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+$(window).scroll(function() {
+  $(".slideanim").each(function(){
+    var pos = $(this).offset().top;
 
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
+    var winTop = $(window).scrollTop();
+      if (pos < winTop + 600) {
+        $(this).addClass("slide");
+      }
   });
-
-  $(window).scroll(function() {
-    $(".slideanim").each(function(){
-      var pos = $(this).offset().top;
-
-      var winTop = $(window).scrollTop();
-        if (pos < winTop + 600) {
-          $(this).addClass("slide");
-        }
-    });
-  });
-})
+});
 
 //********************************smooth transition to div******************************
 $("#button").click(function() {
@@ -44,6 +20,7 @@ $("#button").click(function() {
         scrollTop: $("#contact").offset().top
     }, 1000);
 });
+
 //********************************smooth transition to div******************************
 
 //********************************button to move to the top*****************************
@@ -61,33 +38,3 @@ $('#return-to-top').click(function() {      // When arrow is clicked
     }, 500);
 });
 //********************************button to move to the top*****************************
-
-$(document).ready(function(){
-
-	var clickEvent = false;
-	$('#myCarousel').carousel({
-		interval:   4000
-	}).on('click', '.list-group li', function() {
-			clickEvent = true;
-			$('.list-group li').removeClass('active');
-			$(this).addClass('active');
-	}).on('slid.bs.carousel', function(e) {
-		if(!clickEvent) {
-			var count = $('.list-group').children().length -1;
-			var current = $('.list-group li.active');
-			current.removeClass('active').next().addClass('active');
-			var id = parseInt(current.data('slide-to'));
-			if(count == id) {
-				$('.list-group li').first().addClass('active');
-			}
-		}
-		clickEvent = false;
-	});
-})
-
-$(window).load(function() {
-    var boxheight = $('#myCarousel .carousel-inner').innerHeight();
-    var itemlength = $('#myCarousel .item').length;
-    var triggerheight = Math.round(boxheight/itemlength+1);
-	$('#myCarousel .list-group-item').outerHeight(triggerheight);
-});

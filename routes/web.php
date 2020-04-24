@@ -11,6 +11,29 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('pages.app');
+    $posts = App\Post::orderBy('created_at', 'desc')->take(3)->get();
+    return view('app', compact('posts'));
+});
+
+Route::get('/news', function () {
+    $posts = App\Post::orderBy('created_at', 'desc')->get();
+    return view('news', compact('posts'));
+});
+
+Route::get('/news2', function () {
+    $posts = App\Post::orderBy('created_at', 'desc')->get();
+    return view('newsacc', compact('posts'));
+});
+
+Route::get('/search-results', ['uses' => 'SearchController@search', 'as' => 'search']);
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+Route::get('post/{slug}', function ($slug) {
+    $post = App\Post::where('slug', '=', $slug)->firstOrFail();
+    return view('post', compact('post'));
 });
