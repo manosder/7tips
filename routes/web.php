@@ -27,6 +27,17 @@ Route::get('/news2', function () {
     return view('newsacc', compact('posts'));
 });
 
+Route::get('/test', function () {
+    $posts = App\Post::orderBy('created_at', 'desc')->get();
+    return view('test', compact('posts'));
+});
+
+Route::get('/accenture', function () {
+    $posts = App\Post::orderBy('created_at', 'desc')->get();
+    $categories = App\Category::all();
+    return view('newsfinal', compact('posts', 'categories'));
+});
+
 Route::get('/search-results', ['uses' => 'SearchController@search', 'as' => 'search']);
 
 Route::group(['prefix' => 'admin'], function () {

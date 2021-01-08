@@ -125,7 +125,7 @@
       </div>
       <div><h2 class="col-lg-9 col-md-9 col-sm-9 col-xs-12">Latest News & Updates</h2></div>
       <div class="underlinehover aright col-lg-1 col-md-1 col-sm-1 col-xs-12">
-          <a href="/news" style="color:black;">Go to News <i class="fa fa-arrow-circle-right "></i></a>
+          <a href="/news2" style="color:black;">Go to News <i class="fa fa-arrow-circle-right "></i></a>
       </div>
     </div>
   </div>

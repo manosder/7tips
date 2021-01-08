@@ -34,7 +34,7 @@
           <li data-type="{{ $post->category_id}}">
             <div class="row border-dark">
               <div class="col-md-2" style="min-height:150px;">
-                <img src="{{ asset(Voyager::image( $post->image )) }}" style="width:120px; height:120px;">
+                <img src="{{ asset(Voyager::image( $post->image )) }}" style="width:120px; height:120px;" alt="">
               </div>
               <div class="col-md-1">
               </div>
@@ -56,7 +56,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </li>
         </ul>
@@ -68,17 +67,23 @@
           <ul class="filterSection">
             <strong>Filter by Category:</strong>
             <hr>
+              @foreach($posts as $post)
+                 {{ $post->category_id }}
+              @endforeach
             <li>
-              <label>Espa</label>
-              <input checked="true" type="checkbox" value="1" />
+                <label>Espa
+                    <input checked="true" type="checkbox" value="1" />
+                </label>
             </li>
             <li>
-              <label>Drasi</label>
-              <input checked="true" type="checkbox" value="2" />
+                <label>Drasi
+                    <input checked="true" type="checkbox" value="2" />
+                </label>
             </li>
             <li>
-              <label>Vrasi</label>
-              <input checked="true" type="checkbox" value="3" />
+                <label>Vrasi
+                    <input checked="true" type="checkbox" value="3" />
+                </label>
             </li>
           </ul>
         </div>
