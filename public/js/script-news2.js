@@ -4,9 +4,9 @@
 var searchBox = document.querySelectorAll('.search-box input[type="text"] + span');
 
 searchBox.forEach(elm => {
-  elm.addEventListener('click', () => {
-    elm.previousElementSibling.value = '';
-  });
+    elm.addEventListener('click', () => {
+        elm.previousElementSibling.value = '';
+    });
 });
 
 
@@ -72,7 +72,7 @@ function removeClass(element, classToRemove) {
     var classValues = currentClassValue.split(" ");
     var filteredList = [];
 
-    for (var i = 0 ; i < classValues.length; i++) {
+    for (var i = 0; i < classValues.length; i++) {
         if (classToRemove != classValues[i]) {
             filteredList.push(classValues[i]);
         }
@@ -81,6 +81,27 @@ function removeClass(element, classToRemove) {
     element.className = filteredList.join(" ");
 }
 
-document.getElementById('switch_id').addEventListener("change", function(){
+document.getElementById('switch_id').addEventListener("change", function () {
     if (!this.checked) window.location.href = '/news';
 });
+
+
+
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function myFunction2() {
+    var x = document.getElementById("myDIV2");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+

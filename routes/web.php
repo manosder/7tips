@@ -9,42 +9,34 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
 
-
-Route::get('/', function () {
-    $posts = App\Post::orderBy('created_at', 'desc')->take(3)->get();
-    return view('app', compact('posts'));
+Route::get('/news2', function () {
+    $posts = App\Post::orderBy('created_at', 'desc')->get();
+    return view('wc.newsacc', compact('posts'));
 });
 
 Route::get('/news', function () {
     $posts = App\Post::orderBy('created_at', 'desc')->get();
-    return view('news', compact('posts'));
-});
-
-Route::get('/news2', function () {
-    $posts = App\Post::orderBy('created_at', 'desc')->get();
-    return view('newsacc', compact('posts'));
-});
-
-Route::get('/test', function () {
-    $posts = App\Post::orderBy('created_at', 'desc')->get();
-    return view('test', compact('posts'));
+    return view('wc.news', compact('posts'));
 });
 
 Route::get('/accenture', function () {
     $posts = App\Post::orderBy('created_at', 'desc')->get();
     $categories = App\Category::all();
-    return view('newsfinal', compact('posts', 'categories'));
+    return view('wc.accenture', compact('posts', 'categories'));
 });
+*/
+
+
+
+Route::get('/', 'PageController@index');
+
+Route::get('/blog', 'PageController@blogPage');
+
+Route::get('post/{slug}', 'PageController@showPost');
 
 Route::get('/search-results', ['uses' => 'SearchController@search', 'as' => 'search']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
-});
-
-Route::get('post/{slug}', function ($slug) {
-    $post = App\Post::where('slug', '=', $slug)->firstOrFail();
-    return view('post', compact('post'));
 });

@@ -72,7 +72,9 @@ display: block;
       visibility: hidden;
     }
     .searchbutton {
-      height: 52.6px;
+      height: 50px;
+      background-color: black;
+      color: white;
     }
 }
 
@@ -252,6 +254,12 @@ div.topleft {
 ::placeholder {
   color:#C8C8C8;
 }
+.searchbutton {
+  height: 50px;
+  background-color: black;
+  color: white;
+}
+
 .search-container button{
   background:black;
   float: left;
@@ -342,4 +350,14 @@ div.topleft {
             top: 2px;
         }
     }
+}
+.modal-dialog {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.modal-content {
+  height: 100%;
+  border-radius: 0;
 }
